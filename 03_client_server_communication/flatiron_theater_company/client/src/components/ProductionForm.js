@@ -11,7 +11,6 @@ function ProductionForm({addProduction}) {
     director:'',
     description:''
   })
-  const [errors, setErrors] = useState([])
   const history = useHistory()
 
   const handleChange = (e) => {
@@ -22,26 +21,11 @@ function ProductionForm({addProduction}) {
   function onSubmit(e){
     e.preventDefault()
     
-    fetch('/productions',{
-      method:'POST',
-      headers: {'Content-Type': 'application/json'},
-      body:JSON.stringify({...formData, ongoing:true})
-    })
-    .then(res => {
-      if(res.ok){
-        res.json().then(data => {
-          addProduction(data)
-          history.push('/')
-        })
-      } else {
-        //Display errors
-        res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-      }
-    })
+   //POST
   }
     return (
       <div className='App'>
-      {errors?errors.map(e => <div>{e}</div>):null}
+
       <Form onSubmit={onSubmit}>
         <label>Title </label>
         <input type='text' name='title' value={formData.title} onChange={handleChange} />
@@ -63,7 +47,6 @@ function ProductionForm({addProduction}) {
       
         <input type='submit' value='Create Production' />
       </Form>
-      {errors?errors.map(e => <h2 style={{color:'red'}}>{e.toUpperCase()}</h2>):null}
       </div>
     )
   }

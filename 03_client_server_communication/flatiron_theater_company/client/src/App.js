@@ -8,17 +8,11 @@ import ProductionDetail from './components/ProductionDetail'
 
 function App() {
   const [productions, setProductions] = useState([])
-  const [errors, setErrors] = useState(false)
-
-
-  useEffect(() => {
+  
     //GET to '/productions'
-  },[])
 
   const addProduction = (production) => setProductions(current => [...current,production])
        
-
-  if(errors) return <h1>{errors}</h1>
 
   return (
     <>
@@ -30,7 +24,7 @@ function App() {
       </Route>
       
       <Route exact path='/productions/new'>
-        <ProductionForm addProduction={addProduction} errors={errors} />
+        <ProductionForm addProduction={addProduction} />
       </Route>
       
       <Route exact path='/productions/:id'>
