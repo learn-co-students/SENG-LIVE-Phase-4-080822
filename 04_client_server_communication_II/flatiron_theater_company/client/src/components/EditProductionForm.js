@@ -12,6 +12,8 @@ function EditProductionForm({updateProduction}) {
     director:'',
     description:''
   })
+  const [errors, setErrors] = useState()
+
   const {id} = useParams()
   useEffect(() => {
     //GET the production 

@@ -4,7 +4,8 @@ import styled from 'styled-components'
 
 function ProductionDetail({deleteProduction}) {
   const [production, setProduction] = useState({crew_members:[], performers_and_roles:[]})
-  
+  const [errors, setErrors] = useState()
+
   const params = useParams()
   const history = useHistory()
   
@@ -25,7 +26,7 @@ function ProductionDetail({deleteProduction}) {
  
   }
   
-
+  if(errors) return <h1>{errors}</h1>
   const {id, title, budget, genre, image,description} = production 
   //Place holder data, will be replaced in the assosiations lecture. 
   const crew_members = ['Lily-Mai Harding', 'Cathy Luna', 'Tiernan Daugherty', 'Giselle Nava', 'Alister Wallis', 'Aishah Rowland', 'Keiren Bernal', 'Aqsa Parrish', 'Daanyal Laing', 'Hollie Haas']
