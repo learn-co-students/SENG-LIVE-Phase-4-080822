@@ -27,7 +27,7 @@ function ProductionDetail({deleteProduction}) {
   }
   
   if(errors) return <h1>{errors}</h1>
-  const {id, title, budget, genre, image,description} = production 
+  const {id, title, budget, genre, image, description, director} = production 
   //Place holder data, will be replaced in the assosiations lecture. 
   const crew_members = ['Lily-Mai Harding', 'Cathy Luna', 'Tiernan Daugherty', 'Giselle Nava', 'Alister Wallis', 'Aishah Rowland', 'Keiren Bernal', 'Aqsa Parrish', 'Daanyal Laing', 'Hollie Haas']
   return (
@@ -35,6 +35,8 @@ function ProductionDetail({deleteProduction}) {
         <h1>{title}</h1>
           <div className='wrapper'>
             <div>
+              <h3>Director:</h3>
+              <p>{director}</p>
               <h3>Genre:</h3>
               <p>{genre}</p>
               <h3>Description:</h3>
