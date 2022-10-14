@@ -7,6 +7,7 @@ function ProductionDetail({deleteProduction}) {
   
   const params = useParams()
   const history = useHistory()
+  
   useEffect(()=>{
     //GET to '/productions/:id'
     fetch(`/productions/${params.id}`)

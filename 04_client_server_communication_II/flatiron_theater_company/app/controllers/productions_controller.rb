@@ -29,7 +29,6 @@ class ProductionsController < ApplicationController
 
     private
     
-    #Review strong params and why they are useful with updates
     def production_params
         params.permit(:title, :genre, :description, :budget, :image, :director, :ongoing)
     end 

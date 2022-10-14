@@ -14,9 +14,7 @@ function EditProductionForm({updateProduction}) {
   })
   const {id} = useParams()
   useEffect(() => {
-    fetch(`/productions/${id}`)
-    .then(res => res.json())
-    .then(setFormData)
+    //GET the production 
   },[])
 
   const handleChange = (e) => {
