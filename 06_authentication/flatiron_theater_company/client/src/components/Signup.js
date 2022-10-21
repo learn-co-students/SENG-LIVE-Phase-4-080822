@@ -6,19 +6,21 @@ function SignUp() {
     const [formData, setFormData] = useState({
         name:'',
         email:'',
-        password:''
+        password: '',
+        password_confirmation: ''
     })
     const [errors, setErrors] = useState([])
     const history = useHistory()
 
-    const {name, email, password} = formData
+    const {name, email, password, password_confirmation} = formData
 
     function onSubmit(e){
         e.preventDefault()
         const user = {
             name,
             email,
-            password
+            password,
+            password_confirmation
         }
        
         fetch(`/users`,{
@@ -54,12 +56,14 @@ function SignUp() {
          Email
          </label>
         <input type='text' name='email' value={email} onChange={handleChange} />
-       
         <label>
          Password
          </label>
         <input type='password' name='password' value={password} onChange={handleChange} />
-        
+         <label>
+         Password Confirmation
+         </label>
+        <input type='password' name='password_confirmation' value={password_confirmation} onChange={handleChange} />
        
         <input type='submit' value='Sign up!' />
       </Form>

@@ -1,5 +1,3 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :name, :id
-  has_many :tickets
-  has_many :productions
+  attributes :id, :name, :email, :password_digest
 end
