@@ -2,8 +2,9 @@ class UsersController < ApplicationController
     # skip_before_action 
 
     def show 
-        user = User.find_by(name:params[:name])
-        render json: user, status: :ok
+        # user = User.find(params[:id])
+        byebug
+        render json: current_user, status: :ok
     end 
 
     def create

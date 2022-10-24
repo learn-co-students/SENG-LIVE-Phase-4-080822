@@ -14,10 +14,19 @@ import NotFound from './components/NotFound'
 function App() {
   const [productions, setProductions] = useState([])
   const [errors, setErrors] = useState(false)
+  const [currentUser, setCurrentUser] = useState(false)
 
 
   useEffect(() => {
-    fetchProductions()
+    fetch('/authorized_user')
+    .then(res => {
+      if(res.ok){
+        res.json().then(user => {
+          updateUser(user)
+          fetchProductions()
+        })
+      }
+    })
   },[])
 
   const fetchProductions = () => {
@@ -45,6 +54,7 @@ function App() {
 
   const deleteProduction = (id) => setProductions(current => current.filter(p => p.id !== id)) 
 
+  const updateUser = (user) => setCurrentUser(user)
   
   if(errors) return <h1>{errors}</h1>
 
@@ -53,6 +63,7 @@ function App() {
     <>
     <GlobalStyle />
     <Navigation updateUser={updateUser}/>
+    {!currentUser? <Login error={'please login'} updateUser={updateUser}/> : 
       <Switch>
 
       <Route  path='/productions/new'>
@@ -86,8 +97,8 @@ function App() {
       <Route>
         <NotFound />
       </Route>
-      
       </Switch>
+    }
     </>
   )
 }
