@@ -12,13 +12,6 @@ Heroku is a Platform as a Service (PaaS). It manages the hardware and environmen
 - Demo Download Heroku 
     - To use Heroku, students will first need to make an account and install Heroku. ` brew tap heroku/brew && brew install heroku`
     
-    - Heroku only supports specific versions of ruby. Of the versions it supports, we recommend 2.7.4
-
-    ```
-        rvm install 2.7.4 --default
-        gem install bundler
-        gem install rails
-    ```
 
     - Using the terminal, log into Heroku. After running the command `heroku login`, heroku's authentication page should appear. Login as normal. 
 
